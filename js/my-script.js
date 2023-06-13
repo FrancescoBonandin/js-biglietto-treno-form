@@ -140,10 +140,9 @@ document.getElementById("generate").addEventListener("click",
 
                 // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
 
-                document.querySelector("#car-number").innerHTML = String(math.round(math.random() * 9 + 1))
+                document.querySelector("#car-number").innerHTML = String(Math.round(Math.random() * 9 + 1))
                
-                document.querySelector("#cp-code").innerHTML = String(math.round(math.random() * 9999 + 1))
-
+                document.querySelector("#cp-code").innerHTML = String(Math.round(Math.random() * 9999 + 1))
 
                 document.querySelector("#selected-offer").innerHTML = selectedOffer;
 
