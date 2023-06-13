@@ -22,19 +22,19 @@ document.getElementById("generate").addEventListener("click",
 
             distance = parseFloat(distance);
 
-            console.log("distance", distance, typeof distance);
+            // console.log("distance", distance, typeof distance);
 
             distance = distance.toFixed(2);
 
-            console.log("distance", distance, typeof distance);
+            // console.log("distance", distance, typeof distance);
 
             distance = parseFloat(distance);
 
-            console.log("distance", distance, typeof distance);
+            // console.log("distance", distance, typeof distance);
 
             age = parseInt(age);
 
-            console.log("distance", distance, typeof distance);
+            // console.log("distance", distance, typeof distance);
 
                         
             if(isNaN(distance) ){
@@ -101,7 +101,7 @@ document.getElementById("generate").addEventListener("click",
 
                     // console.log("discount", discount, typeof discount);
 
-                   
+                   document.querySelector("#under-18").setAttribute("selected","");
 
                 }
 
@@ -115,6 +115,7 @@ document.getElementById("generate").addEventListener("click",
                 
                     // console.log("discount", discount, typeof discount);
 
+                    document.querySelector("#over-65").setAttribute("selected","");
                 }
 
                 else{
@@ -122,13 +123,15 @@ document.getElementById("generate").addEventListener("click",
                     alert ("Purtroppo non hai diritto ad alcun tipo di sconto");
 
                     selectedOffer="Biglietto standard";
+
+
               
                     
                     discount = ticketPrice * 0;
 
                     // console.log("discount", discount, typeof discount);
 
-
+                    document.querySelector("#standard").setAttribute("selected","");
                 }
                 
                 
@@ -146,6 +149,8 @@ document.getElementById("generate").addEventListener("click",
 
                 let cpCode =  String(Math.round(Math.random() * 9999 + 1));
 
+                console.log("cpCode", cpCode, typeof cpCode)
+
                 if(cpCode.length==1){
                     cpCode = "0000" + cpCode
                 }
@@ -162,8 +167,6 @@ document.getElementById("generate").addEventListener("click",
                     cpCode = "0" + cpCode
                 }
 
-      
-               
                 document.querySelector("#cp-code").innerHTML = cpCode
 
                 document.querySelector("#selected-offer").innerHTML = selectedOffer;

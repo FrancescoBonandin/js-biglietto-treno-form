@@ -29,80 +29,114 @@
         
     </head>
     
-    <body >
+    <body class="bg-primary " >
        
-        <div class="container">
+        <div class="container pt-5">
 
             <div class="row justify-content-center">
                 
-                <div class="col-10 ">
+                <div class="col bg-success text-white border p-4 rounded-5">
 
-                    <h1>
+                    <h1 class="mb-4">
                         Calcola il prezzo del tuo biglietto
                     </h1>
 
-                    <form class="row" action="">
-                        
-                        
+                    <div class="card p-3 mb-5">
+                    
+                        <form class="" action="">
+                            
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-sm-2  mb-5" >
 
-                        <div class="col">
+                                <div class="col">
+        
+                                    <label class="mb-2 form-label" for="username"> Inserisci Nome e Cognome:</label>
+                                    <input class="form-control" type="text" name="username" placeholder="Nome Cognome"  id="username">
+        
+                                </div>
+                                
+        
+                                <div class="col">
+        
+                                    <label class="mb-2 form-label" for="km"> Inserisci la distanza da percorrere:</label>
+                                    <input class="form-control" type="number" name="km" placeholder="quanti km? (Inserisci un numero per favore)" id="km">
+        
+                                </div>
+        
+                                <div class="col">
+        
+                                    <label class="mb-2 form-label" for="anni"> Inserisci la tua età:</label>
+                                    <input class="form-control" type="number" name="anni" placeholder="quanti anni hai? (Inserisci un numero per favore)" id="anni">
+        
+                                </div>
+        
+                                <div class="col">
+        
+                                    <label class="mb-2 form-label" for="discount-display">Hai diritto a questa offerta:</label>
+                                    <select disabled class="form-control" size="1" name="discount-offer" id="discount-display">
+        
+                                        <option value="">
+                                            -none-
+                                        </option>
+                                        
+                                        <option id="standard" value="standard">
+                                            Biglietto standard
+                                        </option>
+                                        
+                                        <option id="under-18" value="under-18">
+                                            Biglietto under-18
+                                        </option>
+                                        
+                                        <option id="over-65" value="over-65">
+                                            Biglietto over-65
+                                        </option>
+        
+                                    </select>
+        
+                                </div>
 
-                            <label for="username"> Inserisci Nome e Cognome:</label>
-                            <input type="text" name="username" placeholder="Nome Cognome"  id="username">
+                            </div>
 
-                        </div>
-                        
 
-                        <div class="col">
+                            <div class="row mb-5 justify-content-center">
 
-                            <label for="km"> inserisci la distanza da percorrere:</label>
-                            <input type="number" name="km" placeholder="quanti km? (inserisci un numero per favore)" id="km">
+                                <div class="col-6">
 
-                        </div>
+                                    <div class="row justify-content-around">
+                
+                                        <button class="col-auto btn btn-success" id="generate" type="button">Genera</button>
+                                        
+                                        <button class="col-auto btn btn-warning" id="reset" type="reset">Reset</button>
 
-                        <div class="col">
-
-                            <label for="anni"> inserisci la tua età:</label>
-                            <input type="number" name="anni" placeholder="quanti anni hai? (inserisci un numero per favore)" id="anni">
-
-                        </div>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-6">
-
-                                <div class="row justify-content-around">
-            
-                                    <button class="col-auto" id="generate" type="button">Genera</button>
-                                    
-                                    <button class="col-auto" id="reset" type="reset">Reset</button>
+                                    </div>
 
                                 </div>
 
                             </div>
 
-                        </div>
 
+                        </form>
 
-                    </form>
+                    </div>
 
-                    <h2>
+                    <h2 class="mb-2">
                         Il tuo biglietto
                     </h2>
 
-                    <div class="card">
+                    <div class="card p-4">
 
-                        <h3 class="card-title">
+                        <h3 class="card-title mb-2">
                             Dettaglio passeggero
                         </h3>
 
-                        <div class="row">
+                        <div class=" card-text row border border-start-0 border-end-0">
 
                             <div class="col-auto">
 
                                 <h4>Nome passeggero</h4>
 
                                 <div id="passenger-name">
+
+                                    nomepasseggero
 
                                 </div>
 
@@ -119,7 +153,7 @@
                                         </h5>
 
                                         <div id="selected-offer">
-
+                                            -none-
                                         </div>
 
                                     </div>
@@ -131,7 +165,7 @@
                                         </h5>
 
                                         <div id="car-number">
-
+                                            //
                                         </div>
 
                                     </div>
@@ -143,7 +177,7 @@
                                         </h5>
 
                                         <div id="cp-code">
-
+                                            /////
                                         </div>
 
                                     </div>
@@ -155,7 +189,7 @@
                                         </h5>
 
                                         <div id="ticket-cost">
-
+                                            0,00
                                         </div>
 
                                     </div>
