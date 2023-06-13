@@ -149,7 +149,7 @@ document.getElementById("generate").addEventListener("click",
 
                 let cpCode =  String(Math.round(Math.random() * 9999 + 1));
 
-                console.log("cpCode", cpCode, typeof cpCode)
+                // console.log("cpCode", cpCode, typeof cpCode)
 
                 if(cpCode.length==1){
                     cpCode = "0000" + cpCode
