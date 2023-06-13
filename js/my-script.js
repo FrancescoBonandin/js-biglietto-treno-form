@@ -1,185 +1,157 @@
 
-let distance = prompt("Quanti km devi percorrere?(scrivi in numeri per favore)");
 
-const pricingPerKm = 0.21;
+document.getElementById("generate").addEventListener("click",
 
-const refresh = "Ricarica la pagina, per favore"
+        function(){
+            
+            let username = document.getElementById("username").value;
 
-distance = distance.replace(",",".")
+            let distance = document.getElementById("km").value;
 
-distance = parseFloat(distance);
+            let age = document.getElementById("anni").value;
 
-// console.log("distance", distance, typeof distance);
+            let selectedOffer;
 
-distance = distance.toFixed(2);
+            let discount;
+            
+            const pricingPerKm = 0.21;
+           
+            let ticketPrice = pricingPerKm * distance ;
+            
+            distance = distance.replace(",",".")
 
-// console.log("distance", distance, typeof distance);
+            distance = parseFloat(distance);
 
-distance = parseFloat(distance);
+            console.log("distance", distance, typeof distance);
 
-// console.log("distance", distance, typeof distance);
+            distance = distance.toFixed(2);
 
+            console.log("distance", distance, typeof distance);
 
-if(isNaN(distance) ){
-    alert("Mi dispiace non accettiamo valori testuali o campi vuoti, ricomincia");
- 
-    document.querySelector("#price").innerHTML = refresh;
+            distance = parseFloat(distance);
 
-}
+            console.log("distance", distance, typeof distance);
 
-else if(distance >= +Infinity || distance <= -Infinity || distance == undefined ){
+            age = parseInt(age);
 
-    alert("Non si accettano valori non definiti")
+            console.log("distance", distance, typeof distance);
 
-}
+                        
+            if(isNaN(distance) ){
 
-else if(distance < 0){
+                alert("Mi dispiace non accettiamo valori testuali o campi vuoti");
+            
 
-    alert("Scusa eh, ma che significa" + distance + ", ricomincia va!");
+            }
 
-    document.querySelector("#price").innerHTML = refresh;
+            else if(distance >= +Infinity || distance <= -Infinity || distance == undefined ){
 
+                alert("Non si accettano valori non definiti")
 
-}
+            }
 
-else if(distance == 0 ){
+            else if(distance < 0){
 
-    alert("Cosa prendi a fare il treno?");
+                alert("Scusa eh, ma che significa" + distance + "?");
 
-    document.querySelector("#price").innerHTML = refresh;
 
-}
+            }
 
+            else if(distance == 0 ){
 
-else{
+                alert("Cosa prendi a fare il treno?");
 
-    let age = prompt("Quanti anni hai?(scrivi in numeri per favore)");
-    
-    age = parseInt(age);
-    
-    // console.log("age", age, typeof age);
 
-    if(isNaN(age)){
-        alert("Mi dispiace non accettiamo valori testuali o campi vuoti, ricomincia");
+            }
 
-        document.querySelector("#price").innerHTML = refresh;
-     
-    }
-    
-    else if(age < 0){
-    
-        alert("Scusa eh, ma che significa" + age + ", ricomincia va!");
 
-        document.querySelector("#price").innerHTML = refresh;
-    
-    }
-    
-    else if(age == 0 ){
+            else{
 
-        alert("Crescono così in fretta...Ricomincia, burlone");
+                if(isNaN(age)){
 
-        document.querySelector("#price").innerHTML = refresh;
+                    alert("Mi dispiace non accettiamo valori testuali o campi vuoti");
 
-    }
+                }
+                
+                else if(age < 0){
+                
+                    alert("Scusa eh, ma che significa" + age + "?");
+                
+                }
+                
+                else if(age == 0 ){
 
-    else if( age >= +Infinity || age == undefined || age <= -Infinity ){
+                    alert("Crescono così in fretta, burlone correggi!");
 
-        alert("Non si accettano valori non definiti")
-    }
+                }
 
+                else if( age >= +Infinity || age == undefined || age <= -Infinity ){
 
-    else if(age < 18  && age > 0){
+                    alert("Non si accettano valori non definiti")
+                }
 
-        alert ("Hai diritto al 20% di sconto!");
 
-        let ticketPrice = pricingPerKm * distance ;
-        
-        let discount = (ticketPrice / 100) * 20;
+                else if(age < 18  && age > 0){
 
-        // console.log("discount", discount, typeof discount);
+                    alert ("Hai diritto al 20% di sconto!");
 
-        ticketPrice = ticketPrice - discount;
- 
-        ticketPrice = ticketPrice.toFixed(2);
+                    selectedOffer= "Biglietto Ridotto under-18";
+                    
+                    discount = ticketPrice * 0.2;
 
-        ticketPrice = String(ticketPrice).replace(".",",");
+                    // console.log("discount", discount, typeof discount);
 
-        // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
+                   
 
-        document.querySelector("#price").innerHTML = ticketPrice + "€";
+                }
 
-    }
+                else if(age >= 65 && age < +Infinity){
 
-    else if(age >= 65 && age < +Infinity){
+                    alert ("Hai diritto al 40% di sconto!");
 
-        alert ("Hai diritto al 40% di sconto!");
+                    selectedOffer= "Biglietto Ridotto Over-65";
+                    
+                    discount = ticketPrice * 0.4;
+                
+                    // console.log("discount", discount, typeof discount);
 
-        let ticketPrice = pricingPerKm * distance ;
-        
-        let discount = (ticketPrice / 100) * 40;
-    
-        // console.log("discount", discount, typeof discount);
+                }
 
-        ticketPrice = ticketPrice - discount;
-        
-        ticketPrice = ticketPrice.toFixed(2);
+                else{
 
-        ticketPrice = String(ticketPrice).replace(".",",");
+                    alert ("Purtroppo non hai diritto ad alcun tipo di sconto");
 
-        // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
+                    selectedOffer="Biglietto standard";
+              
+                    
+                    discount = ticketPrice * 0;
 
-        document.querySelector("#price").innerHTML = ticketPrice + "€";
+                    // console.log("discount", discount, typeof discount);
 
-    }
 
-    else{
+                }
+                
+                
+                ticketPrice = ticketPrice - discount;
 
-        alert ("Purtroppo non hai diritto ad alcun tipo di sconto");
+                ticketPrice = ticketPrice.toFixed(2);
 
-        let ticketPrice = pricingPerKm * distance ;
-        
-        let discount = (ticketPrice / 100) * 0;
+                ticketPrice = String(ticketPrice).replace(".",",");
 
-        // console.log("discount", discount, typeof discount);
+                // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
 
-        ticketPrice = ticketPrice - discount;
+                document.querySelector("#car-number").innerHTML = String(math.round(math.random() * 9 + 1))
+               
+                document.querySelector("#cp-code").innerHTML = String(math.round(math.random() * 9999 + 1))
 
-        ticketPrice = ticketPrice.toFixed(2);
 
-        ticketPrice = String(ticketPrice).replace(".",",");
+                document.querySelector("#selected-offer").innerHTML = selectedOffer;
 
-        // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
+                document.querySelector("#ticket-cost").innerHTML = ticketPrice + "€";
 
-        document.querySelector("#price").innerHTML = ticketPrice + "€";
+            }
 
-    }
-    
-    
-}
 
-// ----------------NON FUNZIONA COME VORREI------------
-
-    // console.log(typeof parseInt(document.querySelector("#price").innerHTML));
-    
-    // if(typeof parseInt(document.querySelector("#price").innerHTML) == "number" ){
-        
-    //    let buy = prompt("Vuoi procedere all'acquisto? (si/no)");
-    
-    //    if(buy === "si"){
-    //     alert("Attendere, prego")
-    //    }
-       
-    //    else if(buy === "no"){
-    //     alert("Ricaricare la pagina per ulteriori biglietti oppure chiudere la pagina ")
-    //    }
-    
-    //    else{
-    //     alert("input non riconosciuto, prego ricominciare DA CAPO")
-    //    }
-    // }
-
-       
-    // else {
-    //     alert("Ricaricare la pagina per ulteriori biglietti oppure chiudere la pagina ")
-    // }
+        }
+)
 
