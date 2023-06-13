@@ -140,9 +140,31 @@ document.getElementById("generate").addEventListener("click",
 
                 // console.log('ticketPrice', ticketPrice, typeof ticketPrice);
 
-                document.querySelector("#car-number").innerHTML = String(Math.round(Math.random() * 9 + 1))
+                document.querySelector("#passenger-name").innerHTML = username;
+
+                document.querySelector("#car-number").innerHTML = String(Math.round(Math.random() * 9 + 1));
+
+                let cpCode =  String(Math.round(Math.random() * 9999 + 1));
+
+                if(cpCode.length==1){
+                    cpCode = "0000" + cpCode
+                }
+
+                else if(cpCode.length==2){
+                    cpCode = "000" + cpCode
+                }
+
+                else if(cpCode.length==3){
+                    cpCode = "00" + cpCode
+                }
+
+                else if(cpCode.length==4){
+                    cpCode = "0" + cpCode
+                }
+
+      
                
-                document.querySelector("#cp-code").innerHTML = String(Math.round(Math.random() * 9999 + 1))
+                document.querySelector("#cp-code").innerHTML = cpCode
 
                 document.querySelector("#selected-offer").innerHTML = selectedOffer;
 
