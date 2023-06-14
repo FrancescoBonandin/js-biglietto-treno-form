@@ -3,6 +3,13 @@
 document.getElementById("generate").addEventListener("click",
 
         function(){
+
+            document.querySelector("#under-18").removeAttribute("selected","");
+
+            document.querySelector("#over-65").removeAttribute("selected","");
+
+            document.querySelector("#standard").removeAttribute("selected","");
+            
             
             let username = document.getElementById("username").value;
 
@@ -60,7 +67,6 @@ document.getElementById("generate").addEventListener("click",
             else if(distance == 0 ){
 
                 alert("Cosa prendi a fare il treno?");
-
 
             }
 
@@ -123,9 +129,6 @@ document.getElementById("generate").addEventListener("click",
                     alert ("Purtroppo non hai diritto ad alcun tipo di sconto");
 
                     selectedOffer="Biglietto standard";
-
-
-              
                     
                     discount = ticketPrice * 0;
 
